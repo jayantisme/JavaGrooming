@@ -28,6 +28,7 @@ public class CustomArrayList<T> {
     }
     public void increaseCapacity() {
         Object[] temp = Arrays.copyOf(arr, size);
+        this.size = CAPACITY;
         this.CAPACITY *= 2;
         this.arr = Arrays.copyOf(temp, CAPACITY);
     }
@@ -42,6 +43,7 @@ public class CustomArrayList<T> {
         while (j < size) {
             arr[j + 1] = arr[j];
         }
+        size++;
     }
 
     public void add(T value) {
