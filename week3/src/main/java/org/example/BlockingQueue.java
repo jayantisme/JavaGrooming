@@ -15,23 +15,17 @@ class CustomBlockingQueue<T> {
 
     public synchronized void put(T element) throws InterruptedException {
         while (queue.size() == capacity) {
-            // Can't insert element if queue is full.
-            // Move the producer thread to waiting state if queue is at maximum capacity
             wait();
         }
         queue.offer(element);
-        // Once element is added, consumer which is in waiting state(when no queue is empty) is notified.
         notifyAll();
     }
 
     public synchronized T take() throws InterruptedException {
         while (queue.isEmpty()) {
-            // Can't poll element if queue is empty.
-            // Move the producer thread to waiting state if queue is at maximum capacity
             wait();
         }
         T element = queue.poll();
-        // Once element is consumed, producer which is in waiting state(when no queue is full) is notified.
         notifyAll();
         return element;
     }
