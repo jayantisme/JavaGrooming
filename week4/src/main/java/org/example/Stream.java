@@ -68,5 +68,11 @@ public class Stream {
         str.add("a"); str.add("n"); str.add("t");
         System.out.println(str.stream().reduce("", (tot, el) -> tot+el));
 
+        boolean matchFound = str.stream().anyMatch(n  -> n.equals("j"));
+        boolean allJ = str.stream().allMatch(s -> s.equals("j"));
+        boolean noneJ = str.stream().noneMatch(x -> x.equals("j"));
+        System.out.println("j found - " + matchFound);
+        System.out.println("All j found - " + allJ);
+        System.out.println("No j found - " + noneJ);
     }
 }
