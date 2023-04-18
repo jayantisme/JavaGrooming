@@ -3,8 +3,6 @@ package org.example.singleton;
 import java.io.Serializable;
 
 public class SerializedSingleton implements Serializable {
-    private static final long serialVersionID = -7604766932017737115L;
-
     private SerializedSingleton() {
     }
 
