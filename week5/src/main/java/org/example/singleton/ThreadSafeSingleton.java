@@ -12,12 +12,12 @@ public class ThreadSafeSingleton {
     }
 
     public static ThreadSafeSingleton getInstance() {
-       // if (instance == null) {
+        if (instance == null) {
             synchronized (ThreadSafeSingleton.class) {
                 if (instance == null)
                     instance = new ThreadSafeSingleton();
             }
-       // }
+        }
         return instance;
     }
 }

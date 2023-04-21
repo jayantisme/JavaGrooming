@@ -32,6 +32,7 @@ public class Computer {
         this.isWifiEnabled = computerBuilder.isWifiEnabled;
     }
 
+
     public static class ComputerBuilder{
         //required field
         private String HDD;

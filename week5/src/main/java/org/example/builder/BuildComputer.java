@@ -6,6 +6,7 @@ public class BuildComputer {
                 .setGraphicCardMode(true)
 //                .setWifiMode(true)
                 .build();
+
         System.out.println("Computer Build With Specifications");
         System.out.println("HDD -> "+ computer.getHDD());
         System.out.println("RAM -> "+ computer.getRAM());
