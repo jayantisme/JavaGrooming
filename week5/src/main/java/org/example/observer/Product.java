@@ -37,9 +37,12 @@ public class Product implements Subject {
 
     @Override
     public void notifyObservers() {
-        System.out.println("New Bid Placed");
-        for (Observer ob : observers)
-            ob.update(ob, this.productName, this.bidAmount);
+        if (flag) {
+            System.out.println("New Bid Placed");
+            for (Observer ob : observers)
+                ob.update(ob, this.productName, this.bidAmount);
+        }
+        flag = false;
     }
 
     @Override
@@ -48,6 +51,7 @@ public class Product implements Subject {
             System.out.println("New Amount Can't be less than or equal to old bid.");
         } else {
             this.bidAmount = newBidAmount;
+            flag = true;
             notifyObservers();
         }
 
